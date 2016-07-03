@@ -16,8 +16,11 @@
 
 package pw.phylame.hongceicei
 
+import org.dom4j.Document
 import org.dom4j.Element
 import org.dom4j.io.SAXReader
+import java.io.InputStream
+import java.nio.file.Path
 import java.nio.file.Paths
 import java.util.*
 
@@ -33,124 +36,233 @@ interface Container {
     val isStopped: Boolean
 }
 
+data class Holder(val path: String, val name: String = "", val initParams: Map<String, String> = emptyMap())
 
-fun loadWebXml(root: String) {
-    val path = Paths.get(root, "WEB-INF", "web.xml")
-    val reader = SAXReader(false)
-    val doc = reader.read(path.toFile())
-    val top = doc.rootElement
-    for (node in top.elementIterator()) {
-        if (node is Element)
-            when (node.name) {
-                "servlet" -> parseServlet(node)
-                "filter" -> parseFilter(node)
-                "servlet-mapping" -> parseServletMapping(node)
-                "filter-mapping" -> parseFilterMapping(node)
-                "error-page" -> parseErrorPage(node)
+class BadWebXmlException(msg: String, val root: String) : Exception(msg)
+
+class WebApp(val root: String) {
+    companion object {
+        const val DEFAULT_VERSION = "3.1"
+    }
+
+    lateinit var id: String
+        private set
+    lateinit var version: String
+        private set
+    var name: String = ""
+        private set
+    var description: String = ""
+        private set
+
+    val contextParams = HashMap<String, String>()
+    private val listeners = LinkedList<Holder>()
+    private val servlets = HashMap<String, Holder>()
+    private val servletMapping = HashMap<String, String>()
+    private val filters = HashMap<String, Holder>()
+    private val urlFilterMapping = HashMap<String, String>()
+    private val servletFilterMapping = HashMap<String, String>()
+    private val errorCodeMapping = HashMap<String, String>()
+
+    private val welcomeFiles = LinkedList<String>()
+
+    init {
+        load(root)
+    }
+
+    fun load(input: InputStream) {
+        val reader = SAXReader(false)
+        parseWebXml(reader.read(input))
+    }
+
+    fun load(root: String) {
+        val path = Paths.get(root, "WEB-INF", "web.xml")
+        path.toFile().inputStream().use {
+            load(it)
+        }
+    }
+
+    private fun parseWebXml(doc: Document) {
+        val root = doc.rootElement
+        id = root.attributeValue("id") ?: "WebApp_ID${UUID.randomUUID()}"
+        version = root.attributeValue("version") ?: DEFAULT_VERSION
+        for (element in root.elementIterator()) {
+            when ((element as Element).name) {
+                "servlet" -> parseComponent(element, "servlet", servlets)
+                "servlet-mapping" -> parseServletMapping(element)
+                "filter" -> parseComponent(element, "filter", filters)
+                "filter-mapping" -> parseFilterMapping(element)
+                "listener" -> {
+                    listeners.add(Holder(element.elementText("listener-class")))
+                }
+                "context-param" -> {
+                    contextParams[element.elementText("param-name")] = element.elementText("param-value")
+                }
+                "error-page" -> parseErrorPage(element)
+                "welcome-file-c" -> parseWelcomeFiles(element)
+                "display-name" -> {
+                    name = element.textTrim
+                }
+                "description" -> {
+                    description = element.textTrim
+                }
+                else -> println("unknown element: $element")
             }
-    }
-}
-
-data class Holder(val name: String, val path: String, val initParams: Map<String, String>)
-
-val servlets = HashMap<String, Holder>()
-
-val servletMapping = HashMap<String, Holder>()
-
-fun parseServlet(element: Element) {
-    val name = element.elementText("servlet-name")
-    val clazz = element.elementText("servlet-class")
-    val params = HashMap<String, String>()
-    for (param in element.elementIterator("init-param")) {
-        if (param is Element) {
-            params[param.elementText("param-name")] = param.elementText("param-value")
         }
     }
-    servlets[name] = Holder(name, clazz, params)
-}
 
-val filters = HashMap<String, Holder>()
+    private fun parseComponent(element: Element, tag: String, saver: HashMap<String, Holder>) {
+        val name = element.elementText("$tag-name")
+        val clazz = element.elementText("$tag-class")
+        val params = HashMap<String, String>()
+        for (param in element.elementIterator("init-param")) {
+            if (param is Element) {
+                params[param.elementText("param-name")] = param.elementText("param-value")
+            }
+        }
+        saver[name] = Holder(clazz, name, params)
+    }
 
-val filterMapping = HashMap<String, Holder>()
+    private fun parseServletMapping(element: Element) {
+        val name = element.elementText("servlet-name")
+        if (name !in servlets) {
+            throw BadWebXmlException("No such servlet declared found in this XML", root)
+        }
+        servletMapping[element.elementText("url-pattern")] = name
+    }
 
-fun parseFilter(element: Element) {
-    val name = element.elementText("filter-name")
-    val clazz = element.elementText("filter-class")
-    val params = HashMap<String, String>()
-    for (param in element.elementIterator("init-param")) {
-        if (param is Element) {
-            params[param.elementText("param-name")] = param.elementText("param-value")
+    private fun parseFilterMapping(element: Element) {
+        val name = element.elementText("filter-name")
+        if (name !in filters) {
+            throw BadWebXmlException("No such filter declared found in this XML", root)
+        }
+        val url = element.elementText("url-pattern")
+        if (url != null) {
+            urlFilterMapping[url] = name
+        } else {
+            for (sub in element.elementIterator("servlet-name")) {
+                servletFilterMapping[(sub as Element).name] = name
+            }
         }
     }
-    filters[name] = Holder(name, clazz, params)
-}
 
-fun parseServletMapping(element: Element) {
-    val name = element.elementText("servlet-name")
-    val pattern = element.elementText("url-pattern")
-    val servlet = servlets[name]
-    if (servlet == null) {
-        System.err?.println("no servlet $name found")
-        System.exit(-1)
+    private fun parseErrorPage(element: Element) {
+        val errorCode = element.elementText("error-code")
+        val location = element.elementText("location")
+
+        if (errorCode != null) {
+            errorCodeMapping[errorCode] = location
+        }
     }
-    servletMapping[pattern] = servlet!!
-}
 
-fun parseFilterMapping(element: Element) {
-    val name = element.elementText("filter-name")
-    val pattern = element.elementText("url-pattern")
-    val filter = filters[name]
-    if (filter == null) {
-        System.err?.println("no filter $name found")
-        System.exit(-1)
+    private fun parseWelcomeFiles(element: Element) {
+        welcomeFiles.add(element.elementText("welcome-file"))
     }
-    if (pattern != null) {
-        filterMapping[pattern] = filter!!
+
+    fun list(prefix: String = "") {
+        println("WebApp: id: $id, name: $name, version: $version, description: $description")
+        if (contextParams.isNotEmpty()) {
+            printMap("context params:", contextParams, prefix)
+        }
+        if (servlets.isEmpty()) {
+            println("${prefix}no servlets declared")
+        } else {
+            printList("servlets:", servlets.values, prefix) {
+                println("Servlet: name: ${it.name}, class: ${it.path}")
+                if (it.initParams.isNotEmpty()) {
+                    printMap("init params:", it.initParams, prefix + prefix + "   ")
+                }
+            }
+            printMap("servlet mappings:", servletMapping, prefix)
+        }
+        if (filters.isEmpty()) {
+            println("${prefix}no filters declared")
+        } else {
+            printList("filters:", filters.values, prefix) {
+                println("Filter: name: ${it.name}, class: ${it.path}")
+                if (it.initParams.isNotEmpty()) {
+                    printMap("init params:", it.initParams, prefix + prefix + "   ")
+                }
+            }
+            printMap("filter mappings:", urlFilterMapping, prefix)
+            printMap("", servletFilterMapping, prefix, urlFilterMapping.size)
+        }
+        if (listeners.isEmpty()) {
+            println("${prefix}no listeners declared")
+        } else {
+            printList("listeners:", listeners, prefix) {
+                "Listener: class: ${it.path}"
+            }
+        }
+        if (errorCodeMapping.isNotEmpty()) {
+            printMap("error code mappings:", errorCodeMapping, prefix)
+        }
+        if (welcomeFiles.isNotEmpty()) {
+            println("${prefix}index pages:")
+            welcomeFiles.mapIndexed { i, index ->
+                println("$prefix  ${i + 1}: $index")
+            }
+        }
     }
 }
 
-val errorMapping = HashMap<String, String>()
+class Server
+constructor(val name: String, val host: String, val port: Int, val connector: Connector) : Container {
+    private val webapps = LinkedHashMap<Path, WebApp>()
 
-fun parseErrorPage(element: Element) {
-    val code = element.elementText("error-code")
-    val location = element.elementText("location")
-    errorMapping[code] = location
+    fun addApp(root: String) {
+        val path = Paths.get(root).normalize()
+        if (path in webapps) {
+            throw IllegalStateException("Web app in $root already installed")
+        }
+        webapps[path] = WebApp(root)
+    }
+
+    fun getApp(root: String): WebApp? = webapps[Paths.get(root).normalize()]
+
+    private var running = false
+
+    override fun start() {
+        if (running) {
+            throw IllegalStateException("Server already started")
+        }
+        connector.bind(host, port)
+        running = true
+    }
+
+    override fun stop() {
+        if (!running) {
+            throw IllegalStateException("Server already stopped")
+        }
+        connector.close()
+        running = false
+    }
+
+    override fun restart() {
+        stop()
+        start()
+    }
+
+    override val isStarted: Boolean get() = running
+
+    override val isStopped: Boolean get() = !running
+
+    fun list(prefix: String = "") {
+        println("Server: name: $name, host: $host:$port, state: ${if (running) "running" else "stopped"}")
+        webapps.values.mapIndexed { i, app ->
+            print("${i + 1}: ")
+            app.list(prefix + "  ")
+        }
+    }
 }
+
+object Hongceicei {
+
+}
+
 
 fun main(args: Array<String>) {
-    val ssl = true
-    val port = 8080
-    loadWebXml("""D:\devel\web\tomcat-8.0.14\webapps\host-manager""")
-    println(servlets)
-    println(servletMapping)
-    println(filters)
-    println(filterMapping)
-    println(errorMapping)
-//    val bossGroup = NioEventLoopGroup(1);
-//    val workerGroup = NioEventLoopGroup();
-//    try {
-//        val bootstrap = ServerBootstrap()
-//                .group(bossGroup, workerGroup)
-//                .channel(NioServerSocketChannel::class.java)
-//                .childHandler(object : ChannelInitializer<SocketChannel>() {
-//                    override fun initChannel(ch: SocketChannel) {
-//                        val pipeline = ch.pipeline()
-//                        if (ssl) {
-//                            // TODO: ssl
-//                        }
-//                        pipeline.addLast("decoder", HttpRequestDecoder());
-//
-//                        pipeline.addLast("encoder", HttpResponseEncoder());
-//
-//                        pipeline.addLast("deflater", HttpContentCompressor());
-//
-//                        pipeline.addLast("handler", HttpServerHandler());
-//                    }
-//                })
-//        val channel = bootstrap.bind(port).sync().channel()
-//        channel.closeFuture().sync()
-//    } finally {
-//        bossGroup.shutdownGracefully()
-//        workerGroup.shutdownGracefully()
-//    }
+    val server = Server("hongceicei", "localhost", 8080, LegacyConnector(16))
+    server.addApp("D:\\devel\\web\\tomcat-8.0.14\\webapps\\root")
+    server.addApp("D:\\devel\\web\\tomcat-8.0.14\\webapps\\manager")
+    server.start()
 }
