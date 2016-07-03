@@ -262,7 +262,8 @@ object Hongceicei {
 
 fun main(args: Array<String>) {
     val server = Server("hongceicei", "localhost", 8080, LegacyConnector(16))
-    server.addApp("D:\\devel\\web\\tomcat-8.0.14\\webapps\\root")
-    server.addApp("D:\\devel\\web\\tomcat-8.0.14\\webapps\\manager")
+    val root = "/media/pw/azone"
+    server.addApp("$root/devel/web/tomcat-8.0.14/webapps/root")
+    server.addApp("$root/devel/web/tomcat-8.0.14/webapps/manager")
     server.start()
 }

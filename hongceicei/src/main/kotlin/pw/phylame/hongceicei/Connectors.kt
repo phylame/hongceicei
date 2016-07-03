@@ -31,6 +31,7 @@ import java.net.Socket
 import java.util.concurrent.Executors
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletRequestWrapper
+import javax.servlet.http.HttpServletResponse
 
 interface Connector : Closeable {
     fun bind(host: String, port: Int)
@@ -60,27 +61,18 @@ class LegacyConnector(maxThreadCount: Int) : AbstractConnector(maxThreadCount) {
     }
 
     fun processSocket(socket: Socket) {
-        parseRequest(socket)
-        socket.outputStream.bufferedWriter().append("Hello").close()
+        val req = HttpServletRequestImpl.forSocket(socket)
+        val res = makeResponse(socket)
+        socket.outputStream.bufferedWriter().use {
+            it.append("hello")
+        }
+        println(socket.isConnected)
+        socket.close()
     }
 
-    fun parseRequest(socket: Socket) {
-        var inHeader = true
-        socket.inputStream.bufferedReader().useLines {
-            it.mapIndexed { no, line ->
-                if (inHeader && line.isEmpty()) {
-                    inHeader = false
-                }
-                if (inHeader) {
-                    if (no == 0) {
-                        println(line.split(" "))
-                    }
-                    println("$no, $line")
-                } else {
-
-                }
-            }
-        }
+    private fun makeResponse(socket: Socket): HttpServletResponse {
+        val res = HttpServletResponseImpl()
+        return res
     }
 }
 

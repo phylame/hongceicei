@@ -16,6 +16,8 @@
 
 package pw.phylame.hongceicei
 
+import java.util.*
+
 val Int.digits: Int
     get() =
     if (this < 10) 1
@@ -50,3 +52,13 @@ fun printMap(tip: String, map: Map<String, String>, prefix: String = "", from: I
         println("$prefix  ${i + 1 + from}: ${fmt.format(e.key)} -> ${e.value}")
     }
 }
+
+class IteratorEnumeration<E>(private val iterator: Iterator<E>) : Enumeration<E> {
+    override fun nextElement(): E = iterator.next()
+
+    override fun hasMoreElements(): Boolean = iterator.hasNext()
+}
+
+fun <E> Iterator<E>.enumerate(): Enumeration<E> = IteratorEnumeration(this)
+
+fun <E> Iterable<E>.enumerate(): Enumeration<E> = IteratorEnumeration(this.iterator())
