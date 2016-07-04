@@ -16,6 +16,7 @@
 
 package pw.phylame.hongceicei
 
+import java.text.SimpleDateFormat
 import java.util.*
 
 val Int.digits: Int
@@ -62,3 +63,40 @@ class IteratorEnumeration<E>(private val iterator: Iterator<E>) : Enumeration<E>
 fun <E> Iterator<E>.enumerate(): Enumeration<E> = IteratorEnumeration(this)
 
 fun <E> Iterable<E>.enumerate(): Enumeration<E> = IteratorEnumeration(this.iterator())
+
+fun <T> T.iif(condition: Boolean, ok: (T) -> T): T = if (condition) ok(this) else this
+
+fun CharSequence.toPair(sep: Char, ignoreCase: Boolean = false, doTrim: Boolean = false): Pair<String, String> {
+    val parts = split(sep, ignoreCase = ignoreCase, limit = 2)
+    return parts[0].iif(doTrim, String::trimEnd) to if (parts.size == 2) parts[1].iif(doTrim, String::trimStart) else ""
+}
+
+fun CharSequence.toPair(sep: String, ignoreCase: Boolean = false, doTrim: Boolean = false): Pair<String, String> {
+    val parts = split(sep, ignoreCase = ignoreCase, limit = 2)
+    return parts[0].iif(doTrim, String::trimEnd) to if (parts.size == 2) parts[1].iif(doTrim, String::trimStart) else ""
+}
+
+fun <K, V> MutableMap<K, MutableCollection<V>>.add(name: K, value: V) {
+    val values = this[name]
+    if (values != null) {
+        values.add(value)
+    } else {
+        this[name] = mutableSetOf(value)
+    }
+}
+
+fun <K, V> MutableMap<K, MutableCollection<V>>.add(pair: Pair<K, V>) {
+    add(pair.first, pair.second)
+}
+
+operator fun <K, V> MutableMap<K, MutableCollection<V>>.set(name: K, value: V) {
+    this[name] = mutableSetOf(value)
+}
+
+fun <K, V> MutableMap<K, MutableCollection<V>>.set(pair: Pair<K, V>) {
+    this[pair.first] = pair.second
+}
+
+fun <K, V, M : MutableMap<K, V>> M.put(pair: Pair<K, V>): V? = put(pair.first, pair.second)
+
+fun Date.gmtString(): String = SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss 'GMT'", Locale.US).format(this)

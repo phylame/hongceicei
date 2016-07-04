@@ -25,20 +25,27 @@ import io.netty.handler.codec.http.HttpObject
 import io.netty.handler.codec.http.HttpRequest
 import io.netty.handler.codec.http.multipart.HttpPostRequestDecoder
 import java.io.Closeable
+import java.io.PrintStream
+import java.io.PrintWriter
 import java.net.InetSocketAddress
 import java.net.ServerSocket
 import java.net.Socket
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.*
 import java.util.concurrent.Executors
-import javax.servlet.http.HttpServletRequest
-import javax.servlet.http.HttpServletRequestWrapper
 import javax.servlet.http.HttpServletResponse
 
 interface Connector : Closeable {
     fun bind(host: String, port: Int)
+
+    var dispatcher: HttpDispatcher
 }
 
 abstract class AbstractConnector(maxThreadCount: Int) : Connector {
     protected val threadPool = Executors.newFixedThreadPool(maxThreadCount)
+
+    override lateinit var dispatcher: HttpDispatcher
 }
 
 class LegacyConnector(maxThreadCount: Int) : AbstractConnector(maxThreadCount) {
@@ -61,18 +68,26 @@ class LegacyConnector(maxThreadCount: Int) : AbstractConnector(maxThreadCount) {
     }
 
     fun processSocket(socket: Socket) {
-        val req = HttpServletRequestImpl.forSocket(socket)
-        val res = makeResponse(socket)
-        socket.outputStream.bufferedWriter().use {
-            it.append("hello")
-        }
-        println(socket.isConnected)
-        socket.close()
+        val request = HttpServletRequestImpl.forSocket(socket)
+        val response = HttpServletResponseImpl.forSocket(socket)
+        dispatcher.handleHttp(request, response)
+        socket.shutdownInput()
+        writeToSocket(response, socket)
+        socket.shutdownOutput()
     }
 
-    private fun makeResponse(socket: Socket): HttpServletResponse {
-        val res = HttpServletResponseImpl()
-        return res
+    fun writeToSocket(response: HttpServletResponse, socket: Socket) {
+        val out = socket.outputStream.buffered()
+        PrintStream(out).apply {
+            println("HTTP/1.1 ${response.status} OK")
+            println("Date: ${Date().gmtString()}")
+            println("Server: Hongceice")
+            println("Content-Length: 0")
+            response.headerNames.forEach {
+                println("$it: ${response.getHeader(it)}")
+            }
+            println()
+        }.flush()
     }
 }
 

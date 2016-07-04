@@ -23,6 +23,8 @@ import java.io.InputStream
 import java.nio.file.Path
 import java.nio.file.Paths
 import java.util.*
+import javax.servlet.http.HttpServletRequest
+import javax.servlet.http.HttpServletResponse
 
 interface Container {
     fun start()
@@ -205,9 +207,18 @@ class WebApp(val root: String) {
     }
 }
 
+interface HttpDispatcher {
+    fun handleHttp(request: HttpServletRequest, response: HttpServletResponse)
+}
+
 class Server
-constructor(val name: String, val host: String, val port: Int, val connector: Connector) : Container {
+constructor(val name: String, val host: String, val port: Int, val connector: Connector) :
+        Container, HttpDispatcher {
     private val webapps = LinkedHashMap<Path, WebApp>()
+
+    init {
+        connector.dispatcher = this
+    }
 
     fun addApp(root: String) {
         val path = Paths.get(root).normalize()
@@ -246,6 +257,10 @@ constructor(val name: String, val host: String, val port: Int, val connector: Co
 
     override val isStopped: Boolean get() = !running
 
+    override fun handleHttp(request: HttpServletRequest, response: HttpServletResponse) {
+        println("now, do filters and servlets")
+    }
+
     fun list(prefix: String = "") {
         println("Server: name: $name, host: $host:$port, state: ${if (running) "running" else "stopped"}")
         webapps.values.mapIndexed { i, app ->
@@ -261,7 +276,7 @@ object Hongceicei {
 
 
 fun main(args: Array<String>) {
-    val server = Server("hongceicei", "localhost", 8080, LegacyConnector(16))
+    val server = Server("hongceicei", "localhost", 8081, LegacyConnector(16))
     val root = "/media/pw/azone"
     server.addApp("$root/devel/web/tomcat-8.0.14/webapps/root")
     server.addApp("$root/devel/web/tomcat-8.0.14/webapps/manager")

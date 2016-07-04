@@ -17,7 +17,9 @@
 package pw.phylame.hongceicei
 
 import java.io.BufferedReader
+import java.io.InputStream
 import java.io.PrintWriter
+import java.net.InetAddress
 import java.net.Socket
 import java.security.Principal
 import java.util.*
@@ -28,39 +30,47 @@ class HttpServletRequestImpl : HttpServletRequest {
     companion object {
         fun forSocket(socket: Socket): HttpServletRequestImpl {
             val req = HttpServletRequestImpl()
-            var inHeader = true
-            socket.inputStream.bufferedReader().useLines {
-                it.forEachIndexed {
-                    no, line ->
-                    if (inHeader && line.isEmpty()) {
-                        inHeader = false
-                        return@forEachIndexed
-                    }
-                    if (inHeader) {
-                        if (no == 0) {
-                            val parts = line.split(" ")
-                            req.method = parts[0]
-                            req.path = parts[1]
-                            req.protocol = parts[2]
-                        } else {
-                            val parts = line.split(':', limit = 2)
-                            val name = parts[0].trimEnd()
-                            val value = parts[1].trimStart()
-                            val values = req.headers[name]
-                            if (values != null) {
-                                values.add(value)
-                            } else {
-                                req.headers[name] = mutableListOf(value)
-                            }
-                        }
-                    } else {
-                        println("data: $line")
-                    }
-                }
+            socket.inetAddress.apply {
+                req.remoteHost = hostName
+                req.remoteAddr = hostAddress
             }
-            println("${req.method} ${req.path} ${req.protocol}")
-            println(req.headers)
+            req.remotePort = socket.port
+
+            socket.localAddress.apply {
+                req.localHost = hostName
+                req.localAddr = hostAddress
+            }
+            req.localPort = socket.localPort
+            parseStream(req, socket.inputStream)
             return req
+        }
+
+        fun parseStream(req: HttpServletRequestImpl, input: InputStream) {
+            val br = input.bufferedReader()
+            var no = 0
+            var line: String? = br.readLine()
+            while (line != null) {
+                if (line.isEmpty()) {
+                    break
+                }
+                println("$no: $line")
+                if (no == 0) {
+                    val parts = line.split(" ")
+                    req.method = parts[0]
+                    val pair = parts[1].toPair('?')
+                    req.path = pair.first
+                    req.query = pair.second
+                    req.query.splitToSequence('&').forEach {
+                        req.params.add(it.toPair('='))
+                    }
+                    req.protocol = parts[2]
+                } else {
+                    req.headers.add(line.toPair(':', doTrim = true))
+                }
+                line = br.readLine()
+                no++
+            }
+            br.close()
         }
     }
 
@@ -68,9 +78,25 @@ class HttpServletRequestImpl : HttpServletRequest {
 
     private lateinit var path: String
 
+    private lateinit var query: String
+
+    private lateinit var remoteAddr: String
+
+    private lateinit var remoteHost: String
+
+    private var remotePort = -1
+
+    private lateinit var localAddr: String
+
+    private lateinit var localHost: String
+
+    private var localPort = -1
+
+    private val params = LinkedHashMap<String, MutableCollection<String>>()
+
     private lateinit var protocol: String
 
-    private val headers = LinkedHashMap<String, MutableList<String>>()
+    private val headers = LinkedHashMap<String, MutableCollection<String>>()
 
     private val attributes = HashMap<String?, Any?>()
 
@@ -86,9 +112,8 @@ class HttpServletRequestImpl : HttpServletRequest {
         throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getRequestURL(): StringBuffer {
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun getRequestURL(): StringBuffer =
+            StringBuffer(if (isSecure) "https" else "http").append("://").append(path)
 
     override fun login(username: String?, password: String?) {
         throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -102,9 +127,7 @@ class HttpServletRequestImpl : HttpServletRequest {
         throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getDateHeader(name: String?): Long {
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun getDateHeader(name: String?): Long = getHeader(name)?.toLong() ?: -1
 
     override fun getRequestedSessionId(): String {
         throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -148,7 +171,7 @@ class HttpServletRequestImpl : HttpServletRequest {
         throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getQueryString(): String = path.split(':', limit = 2)[1]
+    override fun getQueryString(): String = query
 
     override fun getHeaders(name: String): Enumeration<String>? = headers[name]?.enumerate()
 
@@ -184,7 +207,7 @@ class HttpServletRequestImpl : HttpServletRequest {
         throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getRequestURI(): String = path.split('?', limit = 2).first()
+    override fun getRequestURI(): String = path
 
     override fun getHeaderNames(): Enumeration<String> = headers.keys.enumerate()
 
@@ -196,9 +219,7 @@ class HttpServletRequestImpl : HttpServletRequest {
         throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getProtocol(): String {
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun getProtocol(): String = protocol
 
     override fun getParameterMap(): MutableMap<String, Array<String>>? {
         throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -210,13 +231,9 @@ class HttpServletRequestImpl : HttpServletRequest {
         throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getParameterValues(name: String?): Array<out String> {
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun getParameterValues(name: String?): Array<out String>? = params[name]?.toTypedArray()
 
-    override fun getRemoteAddr(): String {
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun getRemoteAddr(): String = remoteAddr
 
     override fun isAsyncStarted(): Boolean {
         throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -240,9 +257,7 @@ class HttpServletRequestImpl : HttpServletRequest {
 
     override fun getAttribute(name: String?): Any? = attributes[name]
 
-    override fun getRemoteHost(): String {
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun getRemoteHost(): String = remoteHost
 
     override fun getServerName(): String {
         throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -270,13 +285,9 @@ class HttpServletRequestImpl : HttpServletRequest {
         throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getReader(): BufferedReader {
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun getReader(): BufferedReader = inputStream.bufferedReader()
 
-    override fun getScheme(): String {
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun getScheme(): String = protocol.toPair('/').first.toLowerCase()
 
     override fun getInputStream(): ServletInputStream {
         throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -294,9 +305,7 @@ class HttpServletRequestImpl : HttpServletRequest {
         throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getParameterNames(): Enumeration<String> {
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun getParameterNames(): Enumeration<String> = params.keys.enumerate()
 
     override fun removeAttribute(name: String?) {
         attributes.remove(name)
@@ -322,16 +331,24 @@ class HttpServletRequestImpl : HttpServletRequest {
         attributes[name] = o
     }
 
-    override fun getParameter(name: String?): String {
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun getParameter(name: String?): String? = params[name]?.first()
 
-    override fun getRemotePort(): Int {
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun getRemotePort(): Int = remotePort
 }
 
 class HttpServletResponseImpl : HttpServletResponse {
+    companion object {
+        fun forSocket(socket: Socket): HttpServletResponseImpl {
+            return HttpServletResponseImpl()
+        }
+    }
+
+    private val headers = LinkedHashMap<String?, MutableCollection<String?>?>()
+
+    private var status: Int = 200
+
+    private var locale = Locale.getDefault()
+
     override fun encodeURL(url: String?): String {
         throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
@@ -341,7 +358,7 @@ class HttpServletResponseImpl : HttpServletResponse {
     }
 
     override fun addIntHeader(name: String?, value: Int) {
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+        addHeader(name, value.toString())
     }
 
     override fun addCookie(cookie: Cookie?) {
@@ -369,51 +386,46 @@ class HttpServletResponseImpl : HttpServletResponse {
     }
 
     override fun addDateHeader(name: String?, date: Long) {
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+        addHeader(name, date.toString())
     }
 
-    override fun getHeaders(name: String?): MutableCollection<String>? {
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun getHeaders(name: String?): MutableCollection<String?>? = headers[name]
 
     override fun addHeader(name: String?, value: String?) {
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val set = headers[name]
+        if (set == null) {
+            headers[name] = mutableListOf(value)
+        } else {
+            set.add(value)
+        }
     }
 
     override fun setDateHeader(name: String?, date: Long) {
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+        setHeader(name, date.toString())
     }
 
-    override fun getStatus(): Int {
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun getStatus(): Int = status
 
     override fun setStatus(sc: Int) {
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+        status = sc
     }
 
     override fun setStatus(sc: Int, sm: String?) {
         throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getHeader(name: String?): String {
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun getHeader(name: String?): String? = headers[name]?.first()
 
-    override fun containsHeader(name: String?): Boolean {
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun containsHeader(name: String?): Boolean = headers[name]?.isNotEmpty() ?: false
 
     override fun setIntHeader(name: String?, value: Int) {
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+        setHeader(name, value.toString())
     }
 
-    override fun getHeaderNames(): MutableCollection<String>? {
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun getHeaderNames(): MutableCollection<String?>? = headers.keys
 
     override fun setHeader(name: String?, value: String?) {
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+        headers[name] = mutableListOf(value)
     }
 
     override fun flushBuffer() {
@@ -424,12 +436,10 @@ class HttpServletResponseImpl : HttpServletResponse {
         throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getLocale(): Locale {
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun getLocale(): Locale = locale
 
     override fun setContentLengthLong(len: Long) {
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+        setHeader("Content-Length", len.toString())
     }
 
     override fun setCharacterEncoding(charset: String?) {
@@ -437,11 +447,11 @@ class HttpServletResponseImpl : HttpServletResponse {
     }
 
     override fun setLocale(loc: Locale?) {
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+        locale = loc
     }
 
     override fun setContentLength(len: Int) {
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+        setIntHeader("Content-Length", len)
     }
 
     override fun getBufferSize(): Int {
@@ -464,9 +474,7 @@ class HttpServletResponseImpl : HttpServletResponse {
         throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getContentType(): String {
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun getContentType(): String? = getHeader("Content-Type")
 
     override fun getWriter(): PrintWriter {
         throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -477,7 +485,7 @@ class HttpServletResponseImpl : HttpServletResponse {
     }
 
     override fun setContentType(type: String?) {
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+        setHeader("Content-Type", type)
     }
 
     override fun equals(other: Any?): Boolean {
