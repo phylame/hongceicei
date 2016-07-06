@@ -2,23 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ff1d489-0da1-459f-9efd-a1a141246fbd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/AbstractRegistration.kt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/AttributeProvider.kt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/FilterRegistrationImpl.kt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/HttpSessionImpl.kt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/ServletConfigImpl.kt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/ServletContextImpl.kt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/ServletRegistrationImpl.kt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hongceicei.iml" afterPath="$PROJECT_DIR$/hongceicei.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/Connectors.kt" afterPath="$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/Connectors.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/Servers.kt" afterPath="$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/Servers.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/ServletImpls.kt" afterPath="$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/ServletImpls.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/Utilities.kt" afterPath="$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/Utilities.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../pom.xml" afterPath="$PROJECT_DIR$/../pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/AttributeProvider.kt" afterPath="$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/AttributeProvider.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" />
     </list>
     <ignored path="hongceicei.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -152,8 +138,8 @@
       <file leaf-file-name="ServletContextImpl.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/ServletContextImpl.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="44" column="29" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
+            <state relative-caret-position="44">
+              <caret line="65" column="62" selection-start-line="65" selection-start-column="62" selection-end-line="65" selection-end-column="62" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#654#1279#0" expanded="true" />
@@ -162,10 +148,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HttpSessionImpl.kt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AttributeProvider.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/AttributeProvider.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="16">
+              <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#652#709#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HttpSessionImpl.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/HttpSessionImpl.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
+            <state relative-caret-position="412">
               <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -445,8 +444,8 @@
         <option value="$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/ServletRegistrationImpl.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/FilterRegistrationImpl.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/ServletContextImpl.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/AttributeProvider.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/HttpSessionImpl.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/AttributeProvider.kt" />
       </list>
     </option>
   </component>
@@ -766,7 +765,14 @@
       <option name="project" value="LOCAL" />
       <updated>1467647348876</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="daily work">
+      <created>1467804963320</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1467804963320</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -774,7 +780,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="70" y="30" width="1234" height="718" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -852,35 +858,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/Filter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="141" column="29" selection-start-line="141" selection-start-column="29" selection-end-line="141" selection-end-column="29" />
-          <folding>
-            <element signature="docComment;class#Filter#0" expanded="false" />
-            <element signature="docComment;method#init#0;class#Filter#0" expanded="false" />
-            <element signature="docComment;method#doFilter#0;class#Filter#0" expanded="false" />
-            <element signature="docComment;method#destroy#0;class#Filter#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="21" column="70" selection-start-line="21" selection-start-column="70" selection-end-line="21" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib/1.0.2/kotlin-stdlib-1.0.2-sources.jar!/kotlin/text/Strings.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="680" column="48" selection-start-line="680" selection-start-column="48" selection-end-line="680" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib/1.0.2/kotlin-stdlib-1.0.2-sources.jar!/kotlin/text/regex/Regex.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="129">
@@ -2037,28 +2014,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/ServletContextImpl.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="44" column="29" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#654#1279#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/AttributeProvider.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#652#709#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/http/HttpSession.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -2086,13 +2041,76 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/http/HttpSessionBindingEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-116">
+          <caret line="79" column="13" selection-start-line="79" selection-start-column="13" selection-end-line="79" selection-end-column="13" />
+          <folding>
+            <element signature="docComment;class#HttpSessionBindingEvent#0" expanded="false" />
+            <element signature="docComment;method#HttpSessionBindingEvent#0;class#HttpSessionBindingEvent#0" expanded="false" />
+            <element signature="method#HttpSessionBindingEvent#0;class#HttpSessionBindingEvent#0" expanded="false" />
+            <element signature="docComment;method#HttpSessionBindingEvent#1;class#HttpSessionBindingEvent#0" expanded="false" />
+            <element signature="method#HttpSessionBindingEvent#1;class#HttpSessionBindingEvent#0" expanded="false" />
+            <element signature="docComment;method#getSession#0;class#HttpSessionBindingEvent#0" expanded="false" />
+            <element signature="docComment;method#getName#0;class#HttpSessionBindingEvent#0" expanded="false" />
+            <element signature="docComment;method#getValue#0;class#HttpSessionBindingEvent#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/apps/java/jdk1.8.0_91/src.zip!/java/util/HashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="609" column="13" selection-start-line="609" selection-start-column="13" selection-end-line="609" selection-end-column="13" />
+          <folding>
+            <element signature="e#24298#24299#0" expanded="true" />
+            <element signature="e#24363#24364#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/http/HttpSessionAttributeListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#HttpSessionAttributeListener#0" expanded="false" />
+            <element signature="docComment;method#attributeAdded#0;class#HttpSessionAttributeListener#0" expanded="false" />
+            <element signature="docComment;method#attributeRemoved#0;class#HttpSessionAttributeListener#0" expanded="false" />
+            <element signature="docComment;method#attributeReplaced#0;class#HttpSessionAttributeListener#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/ServletContextImpl.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="65" column="62" selection-start-line="65" selection-start-column="62" selection-end-line="65" selection-end-column="62" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#654#1279#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/HttpSessionImpl.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
+        <state relative-caret-position="412">
           <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#652#770#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/AttributeProvider.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#652#709#0" expanded="true" />
           </folding>
         </state>
       </provider>

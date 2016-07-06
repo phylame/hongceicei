@@ -30,11 +30,25 @@ open class AttributeProvider {
         if (value == null) {
             removeAttribute(name)
         } else {
-            attributes[name] = value
+            attributes.put(name, value)?.apply { attributeReplaced(name, this) } ?: attributeAdded(name, value)
         }
     }
 
     fun removeAttribute(name: String) {
-        attributes.remove(name)
+        if (name in attributes) {
+            attributeRemoved(name, attributes.remove(name)!!)
+        }
+    }
+
+    protected open fun attributeAdded(name: String, value: Any) {
+
+    }
+
+    protected open fun attributeRemoved(name: String, value: Any) {
+
+    }
+
+    protected open fun attributeReplaced(name: String, value: Any) {
+
     }
 }
