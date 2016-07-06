@@ -24,17 +24,17 @@ import io.netty.channel.socket.nio.NioServerSocketChannel
 import io.netty.handler.codec.http.HttpObject
 import io.netty.handler.codec.http.HttpRequest
 import io.netty.handler.codec.http.multipart.HttpPostRequestDecoder
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import java.io.Closeable
 import java.io.PrintStream
-import java.io.PrintWriter
 import java.net.InetSocketAddress
 import java.net.ServerSocket
 import java.net.Socket
-import java.text.DateFormat
-import java.text.SimpleDateFormat
 import java.util.*
+import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
-import javax.servlet.http.HttpServletResponse
+import javax.servlet.http.Cookie
 
 interface Connector : Closeable {
     fun bind(host: String, port: Int)
@@ -43,23 +43,39 @@ interface Connector : Closeable {
 }
 
 abstract class AbstractConnector(maxThreadCount: Int) : Connector {
-    protected val threadPool = Executors.newFixedThreadPool(maxThreadCount)
+    companion object {
+        val logger: Logger = LoggerFactory.getLogger(LegacyConnector::class.java)
+    }
+
+    protected val threadPool: ExecutorService = Executors.newFixedThreadPool(maxThreadCount)
 
     override lateinit var dispatcher: HttpDispatcher
+
+    init {
+        logger.debug("use fixed thread pool with size: $maxThreadCount")
+    }
 }
 
-class LegacyConnector(maxThreadCount: Int) : AbstractConnector(maxThreadCount) {
+class LegacyConnector(maxThreadCount: Int, val debug: Boolean = false) : AbstractConnector(maxThreadCount) {
     private var closed = false
 
     override fun bind(host: String, port: Int) {
         val server = ServerSocket()
         server.bind(InetSocketAddress(host, port))
+        logger.debug("${javaClass.simpleName} bound $host:$port")
         while (!closed) {
             val client = server.accept()
-            threadPool.submit {
-                processSocket(client)
+            if (!debug) {
+                threadPool.submit {
+                    handleSocket(client)
+                    client.close()
+                }
+            } else {
+                handleSocket(client)
+                client.close()
             }
         }
+        logger.debug("end bind and shutdown thread pool")
         threadPool.shutdown()
     }
 
@@ -67,8 +83,8 @@ class LegacyConnector(maxThreadCount: Int) : AbstractConnector(maxThreadCount) {
         closed = true
     }
 
-    fun processSocket(socket: Socket) {
-        val request = HttpServletRequestImpl.forSocket(socket)
+    fun handleSocket(socket: Socket) {
+        val request = HttpServletRequestImpl().apply { parseSocket(socket) }
         val response = HttpServletResponseImpl.forSocket(socket)
         dispatcher.handleHttp(request, response)
         socket.shutdownInput()
@@ -76,18 +92,30 @@ class LegacyConnector(maxThreadCount: Int) : AbstractConnector(maxThreadCount) {
         socket.shutdownOutput()
     }
 
-    fun writeToSocket(response: HttpServletResponse, socket: Socket) {
-        val out = socket.outputStream.buffered()
-        PrintStream(out).apply {
+    fun writeToSocket(response: HttpServletResponseImpl, socket: Socket) {
+        PrintStream(socket.outputStream.buffered()).apply {
             println("HTTP/1.1 ${response.status} OK")
-            println("Date: ${Date().gmtString()}")
-            println("Server: Hongceice")
-            println("Content-Length: 0")
-            response.headerNames.forEach {
-                println("$it: ${response.getHeader(it)}")
+            if ("Data" !in response.headers) {
+                println("Date: ${Date().gmtString()}")
+            }
+            if ("Server" !in response.headers) {
+                println("Server: Hongceice")
+            }
+            response.cookies.forEach {
+                println("Set-Cookie: ${renderCookie(it)}")
+            }
+            response.headers.forEach { name, values ->
+                values?.forEach {
+                    println("$name: $it")
+                }
             }
             println()
-        }.flush()
+            flush()
+        }
+    }
+
+    fun renderCookie(cookie: Cookie): String {
+        return cookie.toString()
     }
 }
 

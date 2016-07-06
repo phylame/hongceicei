@@ -62,7 +62,9 @@ class IteratorEnumeration<E>(private val iterator: Iterator<E>) : Enumeration<E>
 
 fun <E> Iterator<E>.enumerate(): Enumeration<E> = IteratorEnumeration(this)
 
-fun <E> Iterable<E>.enumerate(): Enumeration<E> = IteratorEnumeration(this.iterator())
+fun <E> Iterable<E>.enumerate(): Enumeration<E> = this.iterator().enumerate()
+
+fun <E> Array<E>.enumerate(): Enumeration<E> = this.iterator().enumerate()
 
 fun <T> T.iif(condition: Boolean, ok: (T) -> T): T = if (condition) ok(this) else this
 
@@ -81,7 +83,7 @@ fun <K, V> MutableMap<K, MutableCollection<V>>.add(name: K, value: V) {
     if (values != null) {
         values.add(value)
     } else {
-        this[name] = mutableSetOf(value)
+        this[name] = mutableListOf(value)
     }
 }
 
@@ -90,7 +92,7 @@ fun <K, V> MutableMap<K, MutableCollection<V>>.add(pair: Pair<K, V>) {
 }
 
 operator fun <K, V> MutableMap<K, MutableCollection<V>>.set(name: K, value: V) {
-    this[name] = mutableSetOf(value)
+    this[name] = mutableListOf(value)
 }
 
 fun <K, V> MutableMap<K, MutableCollection<V>>.set(pair: Pair<K, V>) {
@@ -100,3 +102,15 @@ fun <K, V> MutableMap<K, MutableCollection<V>>.set(pair: Pair<K, V>) {
 fun <K, V, M : MutableMap<K, V>> M.put(pair: Pair<K, V>): V? = put(pair.first, pair.second)
 
 fun Date.gmtString(): String = SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss 'GMT'", Locale.US).format(this)
+
+fun <T : CharSequence> requireNotEmpty(value: T): T = requireNotEmpty(value) { "Required value is empty" }
+
+inline fun <T : CharSequence> requireNotEmpty(value: T, lazyMessage: () -> Any): T {
+    if (value.isEmpty()) {
+        throw IllegalArgumentException(lazyMessage().toString())
+    } else {
+        return value
+    }
+}
+
+inline fun <reified E> emptyEnumeration(): Enumeration<E> = emptyList<E>().enumerate()
