@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ff1d489-0da1-459f-9efd-a1a141246fbd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/AttributeProvider.kt" afterPath="$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/AttributeProvider.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/AbstractServletRequest.kt" />
     </list>
     <ignored path="hongceicei.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,7 +29,7 @@
       <file leaf-file-name="Servers.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/Servers.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
+            <state relative-caret-position="1210">
               <caret line="386" column="0" selection-start-line="386" selection-start-column="0" selection-end-line="386" selection-end-column="0" />
               <folding>
                 <element signature="n#!!block;n#Container#0" expanded="false" />
@@ -148,24 +146,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AttributeProvider.kt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/AttributeProvider.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="16">
-              <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="e#652#709#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="HttpSessionImpl.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/HttpSessionImpl.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+            <state relative-caret-position="588">
+              <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#652#770#0" expanded="true" />
@@ -174,65 +159,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Utilities.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/Utilities.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="115" column="86" selection-start-line="115" selection-start-column="86" selection-end-line="115" selection-end-column="86" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="e#647#699#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Connectors.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/Connectors.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-              <folding>
-                <element signature="n#!!block;n#Connector#0" expanded="false" />
-                <element signature="n#!!block;n#AbstractConnector#0" expanded="false" />
-                <element signature="n#!!block;n#Companion#0;n#!!block;n#AbstractConnector#0" expanded="false" />
-                <element signature="e#1801#1881#0" expanded="false" />
-                <element signature="n#!!block;n#bind#0;n#!!block;n#LegacyConnector#0" expanded="false" />
-                <element signature="e#3289#3359#1" expanded="false" />
-                <element signature="e#3407#3467#1" expanded="false" />
-                <element signature="e#3505#3579#2" expanded="false" />
-                <element signature="e#3617#3742#2" expanded="false" />
-                <element signature="e#3667#3728#2" expanded="false" />
-                <element signature="n#!!block;n#renderCookie#0;n#!!block;n#LegacyConnector#0" expanded="false" />
-                <element signature="n#!!block;n#NettyConnector#0" expanded="false" />
-                <element signature="n#!!block;n#bind#0;n#!!block;n#NettyConnector#0" expanded="false" />
-                <element signature="e#4219#4894#0" expanded="false" />
-                <element signature="e#4447#4637#0" expanded="false" />
-                <element signature="e#4517#4615#0" expanded="false" />
-                <element signature="e#4903#4934#0" expanded="false" />
-                <element signature="n#!!block;n#close#0;n#!!block;n#NettyConnector#0" expanded="false" />
-                <element signature="n#!!block;n#HttpServerHandler#0;n#!!block;n#NettyConnector#0" expanded="false" />
-                <element signature="n#!!block;n#channelRead0#0;n#!!block;n#HttpServerHandler#0;n#!!block;n#NettyConnector#0" expanded="false" />
-                <element signature="n#!!block;n#channelInactive#0;n#!!block;n#HttpServerHandler#0;n#!!block;n#NettyConnector#0" expanded="false" />
-                <element signature="n#!!block;n#messageReceived#0;n#!!block;n#HttpServerHandler#0;n#!!block;n#NettyConnector#0" expanded="false" />
-                <element signature="e#5642#5658#1" expanded="false" />
-                <marker date="1467713991262" expanded="false" signature="3188:3794" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ServletImpls.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/ServletImpls.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="406" column="60" selection-start-line="406" selection-start-column="60" selection-end-line="406" selection-end-column="60" />
+            <state relative-caret-position="308">
+              <caret line="405" column="0" selection-start-line="405" selection-start-column="0" selection-end-line="405" selection-end-column="0" />
               <folding>
                 <element signature="n#!!block;n#BaseImpl#0" expanded="false" />
                 <element signature="n#!!block;n#setAttribute#0;n#!!block;n#BaseImpl#0" expanded="false" />
                 <element signature="n#!!block;n#removeAttribute#0;n#!!block;n#BaseImpl#0" expanded="false" />
                 <element signature="n#!!block;n#setLocale#0;n#!!block;n#BaseImpl#0" expanded="false" />
+                <element signature="n#!!block;n#ServletContextImpl#0" expanded="false" />
                 <element signature="n#!!block;n#Companion#0;n#!!block;n#ServletContextImpl#0" expanded="false" />
+                <element signature="e#1958#2316#2" expanded="false" />
                 <element signature="n#!!block;n#getEffectiveMinorVersion#0;n#!!block;n#ServletContextImpl#0" expanded="false" />
                 <element signature="n#!!block;n#addListener#0;n#!!block;n#ServletContextImpl#0" expanded="false" />
                 <element signature="n#!!block;n#addListener#1;n#!!block;n#ServletContextImpl#0" expanded="false" />
@@ -397,6 +336,19 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="AbstractServletRequest.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/AbstractServletRequest.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="544">
+              <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#652#723#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -446,6 +398,7 @@
         <option value="$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/ServletContextImpl.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/HttpSessionImpl.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/AttributeProvider.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/AbstractServletRequest.kt" />
       </list>
     </option>
   </component>
@@ -498,12 +451,103 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
-        <subPane />
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hongceicei" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hongceicei" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hongceicei" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hongceicei" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hongceicei" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hongceicei" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hongceicei" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kotlin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hongceicei" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hongceicei" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hongceicei" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kotlin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hongceicei" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="impl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -780,31 +824,31 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="70" y="30" width="1234" height="718" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32200646" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32200646" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24797407" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24878444" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39967638" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32200646" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32200646" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39967638" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -858,51 +902,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib/1.0.2/kotlin-stdlib-1.0.2-sources.jar!/kotlin/text/regex/Regex.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="205" column="19" selection-start-line="205" selection-start-column="19" selection-end-line="205" selection-end-column="19" />
-          <folding>
-            <element signature="n#!!block;n#FlagEnum#0" expanded="false" />
-            <element signature="e#1077#1144#2" expanded="false" />
-            <element signature="n#!!doc;n#RegexOption#0" expanded="false" />
-            <element signature="n#!!block;n#RegexOption#0" expanded="false" />
-            <element signature="n#!!doc;n#MULTILINE#0;n#!!block;n#RegexOption#0" expanded="false" />
-            <element signature="n#!!doc;n#LITERAL#0;n#!!block;n#RegexOption#0" expanded="false" />
-            <element signature="n#!!doc;n#UNIX_LINES#0;n#!!block;n#RegexOption#0" expanded="false" />
-            <element signature="n#!!doc;n#DOT_MATCHES_ALL#0;n#!!block;n#RegexOption#0" expanded="false" />
-            <element signature="n#!!doc;n#MatchGroup#0" expanded="false" />
-            <element signature="n#!!doc;n#Regex#0" expanded="false" />
-            <element signature="n#!!doc;n#find#0;n#!!block;n#Regex#0" expanded="false" />
-            <element signature="n#!!doc;n#findAll#0;n#!!block;n#Regex#0" expanded="false" />
-            <element signature="n#!!doc;n#matchEntire#0;n#!!block;n#Regex#0" expanded="false" />
-            <element signature="n#!!doc;n#replace#0;n#!!block;n#Regex#0" expanded="false" />
-            <element signature="n#!!doc;n#replace#1;n#!!block;n#Regex#0" expanded="false" />
-            <element signature="n#!!block;n#replace#1;n#!!block;n#Regex#0" expanded="false" />
-            <element signature="e#6539#6792#1" expanded="false" />
-            <element signature="e#6870#6929#1" expanded="false" />
-            <element signature="n#!!doc;n#replaceFirst#0;n#!!block;n#Regex#0" expanded="false" />
-            <element signature="n#!!doc;n#split#0;n#!!block;n#Regex#0" expanded="false" />
-            <element signature="n#!!block;n#split#0;n#!!block;n#Regex#0" expanded="false" />
-            <element signature="n#!!doc;n#toPattern#0;n#!!block;n#Regex#0" expanded="false" />
-            <element signature="n#!!block;n#findNext#0" expanded="false" />
-            <element signature="n#!!block;n#matchEntire#0" expanded="false" />
-            <element signature="n#!!block;n#MatcherMatchResult#0" expanded="false" />
-            <element signature="e#9723#10402#0" expanded="false" />
-            <element signature="e#10197#10396#0" expanded="false" />
-            <element signature="e#10513#10865#0" expanded="false" />
-            <element signature="e#10553#10821#1" expanded="false" />
-            <element signature="e#10618#10807#0" expanded="false" />
-            <element signature="n#!!block;n#next#0;n#!!block;n#MatcherMatchResult#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib/1.0.2/kotlin-stdlib-1.0.2-sources.jar!/kotlin/text/StringsJVM.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3">
           <caret line="64" column="18" selection-start-line="64" selection-start-column="18" selection-end-line="64" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -922,11 +925,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="129">
           <caret line="85" column="17" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="17" />
-          <folding>
-            <element signature="docComment;class#ServletRequestListener#0" expanded="false" />
-            <element signature="docComment;method#requestDestroyed#0;class#ServletRequestListener#0" expanded="false" />
-            <element signature="docComment;method#requestInitialized#0;class#ServletRequestListener#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -934,10 +932,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
           <caret line="969" column="23" selection-start-line="969" selection-start-column="23" selection-end-line="969" selection-end-column="23" />
-          <folding>
-            <element signature="e#40171#40172#0" expanded="true" />
-            <element signature="e#40220#40221#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -945,7 +939,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213">
           <caret line="51" column="16" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1182,7 +1175,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="129">
           <caret line="294" column="25" selection-start-line="294" selection-start-column="25" selection-end-line="294" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1221,40 +1213,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="217">
           <caret line="1355" column="0" selection-start-line="1355" selection-start-column="0" selection-end-line="1355" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/Connectors.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!block;n#Connector#0" expanded="false" />
-            <element signature="n#!!block;n#AbstractConnector#0" expanded="false" />
-            <element signature="n#!!block;n#Companion#0;n#!!block;n#AbstractConnector#0" expanded="false" />
-            <element signature="e#1801#1881#0" expanded="false" />
-            <element signature="n#!!block;n#bind#0;n#!!block;n#LegacyConnector#0" expanded="false" />
-            <element signature="e#3289#3359#1" expanded="false" />
-            <element signature="e#3407#3467#1" expanded="false" />
-            <element signature="e#3505#3579#2" expanded="false" />
-            <element signature="e#3617#3742#2" expanded="false" />
-            <element signature="e#3667#3728#2" expanded="false" />
-            <element signature="n#!!block;n#renderCookie#0;n#!!block;n#LegacyConnector#0" expanded="false" />
-            <element signature="n#!!block;n#NettyConnector#0" expanded="false" />
-            <element signature="n#!!block;n#bind#0;n#!!block;n#NettyConnector#0" expanded="false" />
-            <element signature="e#4219#4894#0" expanded="false" />
-            <element signature="e#4447#4637#0" expanded="false" />
-            <element signature="e#4517#4615#0" expanded="false" />
-            <element signature="e#4903#4934#0" expanded="false" />
-            <element signature="n#!!block;n#close#0;n#!!block;n#NettyConnector#0" expanded="false" />
-            <element signature="n#!!block;n#HttpServerHandler#0;n#!!block;n#NettyConnector#0" expanded="false" />
-            <element signature="n#!!block;n#channelRead0#0;n#!!block;n#HttpServerHandler#0;n#!!block;n#NettyConnector#0" expanded="false" />
-            <element signature="n#!!block;n#channelInactive#0;n#!!block;n#HttpServerHandler#0;n#!!block;n#NettyConnector#0" expanded="false" />
-            <element signature="n#!!block;n#messageReceived#0;n#!!block;n#HttpServerHandler#0;n#!!block;n#NettyConnector#0" expanded="false" />
-            <element signature="e#5642#5658#1" expanded="false" />
-            <marker date="1467713991262" expanded="false" signature="3188:3794" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1262,11 +1220,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
           <caret line="76" column="42" selection-start-line="76" selection-start-column="42" selection-end-line="76" selection-end-column="42" />
-          <folding>
-            <element signature="docComment;class#ServletContextEvent#0" expanded="false" />
-            <element signature="docComment;method#ServletContextEvent#0;class#ServletContextEvent#0" expanded="false" />
-            <element signature="docComment;method#getServletContext#0;class#ServletContextEvent#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1274,11 +1227,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
           <caret line="107" column="13" selection-start-line="107" selection-start-column="13" selection-end-line="107" selection-end-column="13" />
-          <folding>
-            <element signature="docComment;class#ServletContextListener#0" expanded="false" />
-            <element signature="docComment;method#contextInitialized#0;class#ServletContextListener#0" expanded="false" />
-            <element signature="docComment;method#contextDestroyed#0;class#ServletContextListener#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1290,19 +1238,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/ServletContextImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/ServletContextImpl.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib/1.0.2/kotlin-stdlib-1.0.2-sources.jar!/generated/_Arrays.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="394">
           <caret line="8442" column="61" selection-start-line="8442" selection-start-column="61" selection-end-line="8442" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1310,32 +1250,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
           <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/Server.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/Utilities.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="115" column="86" selection-start-line="115" selection-start-column="86" selection-end-line="115" selection-end-column="86" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#647#699#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/Server.kt" />
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/Servers.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
+        <state relative-caret-position="1210">
           <caret line="386" column="0" selection-start-line="386" selection-start-column="0" selection-end-line="386" selection-end-column="0" />
           <folding>
             <element signature="n#!!block;n#Container#0" expanded="false" />
@@ -1442,7 +1363,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
           <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1450,27 +1370,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="88" column="37" selection-start-line="88" selection-start-column="37" selection-end-line="88" selection-end-column="37" />
-          <folding>
-            <element signature="docComment;class#RequestDispatcher#0" expanded="false" />
-            <element signature="docComment;field#FORWARD_REQUEST_URI#0;class#RequestDispatcher#0" expanded="false" />
-            <element signature="docComment;field#FORWARD_CONTEXT_PATH#0;class#RequestDispatcher#0" expanded="false" />
-            <element signature="docComment;field#FORWARD_PATH_INFO#0;class#RequestDispatcher#0" expanded="false" />
-            <element signature="docComment;field#FORWARD_SERVLET_PATH#0;class#RequestDispatcher#0" expanded="false" />
-            <element signature="docComment;field#FORWARD_QUERY_STRING#0;class#RequestDispatcher#0" expanded="false" />
-            <element signature="docComment;field#INCLUDE_REQUEST_URI#0;class#RequestDispatcher#0" expanded="false" />
-            <element signature="docComment;field#INCLUDE_CONTEXT_PATH#0;class#RequestDispatcher#0" expanded="false" />
-            <element signature="docComment;field#INCLUDE_PATH_INFO#0;class#RequestDispatcher#0" expanded="false" />
-            <element signature="docComment;field#INCLUDE_SERVLET_PATH#0;class#RequestDispatcher#0" expanded="false" />
-            <element signature="docComment;field#INCLUDE_QUERY_STRING#0;class#RequestDispatcher#0" expanded="false" />
-            <element signature="docComment;field#ERROR_EXCEPTION#0;class#RequestDispatcher#0" expanded="false" />
-            <element signature="docComment;field#ERROR_EXCEPTION_TYPE#0;class#RequestDispatcher#0" expanded="false" />
-            <element signature="docComment;field#ERROR_MESSAGE#0;class#RequestDispatcher#0" expanded="false" />
-            <element signature="docComment;field#ERROR_REQUEST_URI#0;class#RequestDispatcher#0" expanded="false" />
-            <element signature="docComment;field#ERROR_SERVLET_NAME#0;class#RequestDispatcher#0" expanded="false" />
-            <element signature="docComment;field#ERROR_STATUS_CODE#0;class#RequestDispatcher#0" expanded="false" />
-            <element signature="docComment;method#forward#0;class#RequestDispatcher#0" expanded="false" />
-            <element signature="docComment;method#include#0;class#RequestDispatcher#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1478,11 +1377,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="53" column="17" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="17" />
-          <folding>
-            <element signature="docComment;class#JspConfigDescriptor#0" expanded="false" />
-            <element signature="docComment;method#getTaglibs#0;class#JspConfigDescriptor#0" expanded="false" />
-            <element signature="docComment;method#getJspPropertyGroups#0;class#JspConfigDescriptor#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1494,16 +1388,311 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/ServletRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="527" column="33" selection-start-line="527" selection-start-column="30" selection-end-line="527" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/http/HttpServletRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="78" column="54" selection-start-line="78" selection-start-column="54" selection-end-line="78" selection-end-column="54" />
+          <folding>
+            <element signature="docComment;class#HttpServletRequest#0" expanded="false" />
+            <element signature="docComment;field#BASIC_AUTH#0;class#HttpServletRequest#0" expanded="false" />
+            <element signature="docComment;field#FORM_AUTH#0;class#HttpServletRequest#0" expanded="false" />
+            <element signature="docComment;field#CLIENT_CERT_AUTH#0;class#HttpServletRequest#0" expanded="false" />
+            <element signature="docComment;field#DIGEST_AUTH#0;class#HttpServletRequest#0" expanded="false" />
+            <element signature="docComment;method#getAuthType#0;class#HttpServletRequest#0" expanded="false" />
+            <element signature="docComment;method#getCookies#0;class#HttpServletRequest#0" expanded="false" />
+            <element signature="docComment;method#getDateHeader#0;class#HttpServletRequest#0" expanded="false" />
+            <element signature="docComment;method#getHeader#0;class#HttpServletRequest#0" expanded="false" />
+            <element signature="docComment;method#getHeaders#0;class#HttpServletRequest#0" expanded="false" />
+            <element signature="docComment;method#getHeaderNames#0;class#HttpServletRequest#0" expanded="false" />
+            <element signature="docComment;method#getIntHeader#0;class#HttpServletRequest#0" expanded="false" />
+            <element signature="docComment;method#getMethod#0;class#HttpServletRequest#0" expanded="false" />
+            <element signature="docComment;method#getPathInfo#0;class#HttpServletRequest#0" expanded="false" />
+            <element signature="docComment;method#getPathTranslated#0;class#HttpServletRequest#0" expanded="false" />
+            <element signature="docComment;method#getContextPath#0;class#HttpServletRequest#0" expanded="false" />
+            <element signature="docComment;method#getQueryString#0;class#HttpServletRequest#0" expanded="false" />
+            <element signature="docComment;method#getRemoteUser#0;class#HttpServletRequest#0" expanded="false" />
+            <element signature="docComment;method#getUserPrincipal#0;class#HttpServletRequest#0" expanded="false" />
+            <element signature="docComment;method#getRequestedSessionId#0;class#HttpServletRequest#0" expanded="false" />
+            <element signature="docComment;method#getServletPath#0;class#HttpServletRequest#0" expanded="false" />
+            <element signature="docComment;method#getSession#0;class#HttpServletRequest#0" expanded="false" />
+            <element signature="docComment;method#getSession#1;class#HttpServletRequest#0" expanded="false" />
+            <element signature="docComment;method#changeSessionId#0;class#HttpServletRequest#0" expanded="false" />
+            <element signature="docComment;method#isRequestedSessionIdValid#0;class#HttpServletRequest#0" expanded="false" />
+            <element signature="docComment;method#isRequestedSessionIdFromCookie#0;class#HttpServletRequest#0" expanded="false" />
+            <element signature="docComment;method#isRequestedSessionIdFromURL#0;class#HttpServletRequest#0" expanded="false" />
+            <element signature="docComment;method#isRequestedSessionIdFromUrl#0;class#HttpServletRequest#0" expanded="false" />
+            <element signature="docComment;method#authenticate#0;class#HttpServletRequest#0" expanded="false" />
+            <element signature="docComment;method#login#0;class#HttpServletRequest#0" expanded="false" />
+            <element signature="docComment;method#logout#0;class#HttpServletRequest#0" expanded="false" />
+            <element signature="docComment;method#getParts#0;class#HttpServletRequest#0" expanded="false" />
+            <element signature="docComment;method#getPart#0;class#HttpServletRequest#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/Servlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="100" column="17" selection-start-line="100" selection-start-column="17" selection-end-line="100" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/ServletConfigImpl.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#652#780#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/apps/java/jdk1.8.0_91/src.zip!/java/lang/ref/Reference.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="305" column="4" selection-start-line="305" selection-start-column="4" selection-end-line="305" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/apps/java/jdk1.8.0_91/src.zip!/java/lang/ref/WeakReference.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="56" column="10" selection-start-line="56" selection-start-column="10" selection-end-line="56" selection-end-column="10" />
+          <folding>
+            <element signature="e#1456#1457#0" expanded="true" />
+            <element signature="e#1487#1488#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/Registration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="160" column="14" selection-start-line="160" selection-start-column="14" selection-end-line="160" selection-end-column="14" />
+          <folding>
+            <element signature="docComment;class#Registration#0" expanded="false" />
+            <element signature="docComment;method#getName#0;class#Registration#0" expanded="false" />
+            <element signature="docComment;method#getClassName#0;class#Registration#0" expanded="false" />
+            <element signature="docComment;method#setInitParameter#0;class#Registration#0" expanded="false" />
+            <element signature="docComment;method#getInitParameter#0;class#Registration#0" expanded="false" />
+            <element signature="docComment;method#setInitParameters#0;class#Registration#0" expanded="false" />
+            <element signature="docComment;method#getInitParameters#0;class#Registration#0" expanded="false" />
+            <element signature="docComment;class#Dynamic#0;class#Registration#0" expanded="false" />
+            <element signature="docComment;method#setAsyncSupported#0;class#Dynamic#0;class#Registration#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/AbstractRegistration.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="51" column="30" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#652#720#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/apps/java/jdk1.8.0_91/src.zip!/java/util/EnumSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="79" column="22" selection-start-line="79" selection-start-column="22" selection-end-line="79" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/ServletRegistration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="84" column="36" selection-start-line="84" selection-start-column="36" selection-end-line="84" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/FilterRegistration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="146" column="71" selection-start-line="146" selection-start-column="71" selection-end-line="146" selection-end-column="71" />
+          <folding>
+            <element signature="docComment;class#FilterRegistration#0" expanded="false" />
+            <element signature="docComment;method#addMappingForServletNames#0;class#FilterRegistration#0" expanded="false" />
+            <element signature="docComment;method#getServletNameMappings#0;class#FilterRegistration#0" expanded="false" />
+            <element signature="docComment;method#addMappingForUrlPatterns#0;class#FilterRegistration#0" expanded="false" />
+            <element signature="docComment;method#getUrlPatternMappings#0;class#FilterRegistration#0" expanded="false" />
+            <element signature="docComment;class#Dynamic#0;class#FilterRegistration#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/ServletRegistrationImpl.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="59" column="56" selection-start-line="59" selection-start-column="56" selection-end-line="59" selection-end-column="56" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#652#780#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/FilterRegistrationImpl.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#652#780#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/SessionCookieConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-748">
+          <caret line="51" column="27" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/ServletContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="709" column="28" selection-start-line="709" selection-start-column="16" selection-end-line="709" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/http/HttpSession.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="341" column="0" selection-start-line="341" selection-start-column="0" selection-end-line="341" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#HttpSession#0" expanded="false" />
+            <element signature="docComment;method#getCreationTime#0;class#HttpSession#0" expanded="false" />
+            <element signature="docComment;method#getId#0;class#HttpSession#0" expanded="false" />
+            <element signature="docComment;method#getLastAccessedTime#0;class#HttpSession#0" expanded="false" />
+            <element signature="docComment;method#getServletContext#0;class#HttpSession#0" expanded="false" />
+            <element signature="docComment;method#setMaxInactiveInterval#0;class#HttpSession#0" expanded="false" />
+            <element signature="docComment;method#getMaxInactiveInterval#0;class#HttpSession#0" expanded="false" />
+            <element signature="docComment;method#getSessionContext#0;class#HttpSession#0" expanded="false" />
+            <element signature="docComment;method#getAttribute#0;class#HttpSession#0" expanded="false" />
+            <element signature="docComment;method#getValue#0;class#HttpSession#0" expanded="false" />
+            <element signature="docComment;method#getAttributeNames#0;class#HttpSession#0" expanded="false" />
+            <element signature="docComment;method#getValueNames#0;class#HttpSession#0" expanded="false" />
+            <element signature="docComment;method#setAttribute#0;class#HttpSession#0" expanded="false" />
+            <element signature="docComment;method#putValue#0;class#HttpSession#0" expanded="false" />
+            <element signature="docComment;method#removeAttribute#0;class#HttpSession#0" expanded="false" />
+            <element signature="docComment;method#removeValue#0;class#HttpSession#0" expanded="false" />
+            <element signature="docComment;method#invalidate#0;class#HttpSession#0" expanded="false" />
+            <element signature="docComment;method#isNew#0;class#HttpSession#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/http/HttpSessionBindingEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-116">
+          <caret line="79" column="13" selection-start-line="79" selection-start-column="13" selection-end-line="79" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/apps/java/jdk1.8.0_91/src.zip!/java/util/HashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="609" column="13" selection-start-line="609" selection-start-column="13" selection-end-line="609" selection-end-column="13" />
+          <folding>
+            <element signature="e#24298#24299#0" expanded="true" />
+            <element signature="e#24363#24364#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/http/HttpSessionAttributeListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#HttpSessionAttributeListener#0" expanded="false" />
+            <element signature="docComment;method#attributeAdded#0;class#HttpSessionAttributeListener#0" expanded="false" />
+            <element signature="docComment;method#attributeRemoved#0;class#HttpSessionAttributeListener#0" expanded="false" />
+            <element signature="docComment;method#attributeReplaced#0;class#HttpSessionAttributeListener#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/Connectors.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="81" column="26" selection-start-line="81" selection-start-column="26" selection-end-line="81" selection-end-column="26" />
+          <folding>
+            <element signature="n#!!block;n#Connector#0" expanded="false" />
+            <element signature="n#!!block;n#AbstractConnector#0" expanded="false" />
+            <element signature="n#!!block;n#Companion#0;n#!!block;n#AbstractConnector#0" expanded="false" />
+            <element signature="e#1801#1881#0" expanded="false" />
+            <element signature="n#!!block;n#bind#0;n#!!block;n#LegacyConnector#0" expanded="false" />
+            <element signature="e#3188#3794#2" expanded="false" />
+            <element signature="e#3289#3359#1" expanded="false" />
+            <element signature="e#3407#3467#1" expanded="false" />
+            <element signature="e#3505#3579#2" expanded="false" />
+            <element signature="e#3617#3742#2" expanded="false" />
+            <element signature="e#3667#3728#2" expanded="false" />
+            <element signature="n#!!block;n#renderCookie#0;n#!!block;n#LegacyConnector#0" expanded="false" />
+            <element signature="n#!!block;n#NettyConnector#0" expanded="false" />
+            <element signature="n#!!block;n#bind#0;n#!!block;n#NettyConnector#0" expanded="false" />
+            <element signature="e#4219#4894#0" expanded="false" />
+            <element signature="e#4447#4637#0" expanded="false" />
+            <element signature="e#4517#4615#0" expanded="false" />
+            <element signature="e#4903#4934#0" expanded="false" />
+            <element signature="n#!!block;n#close#0;n#!!block;n#NettyConnector#0" expanded="false" />
+            <element signature="n#!!block;n#HttpServerHandler#0;n#!!block;n#NettyConnector#0" expanded="false" />
+            <element signature="n#!!block;n#channelRead0#0;n#!!block;n#HttpServerHandler#0;n#!!block;n#NettyConnector#0" expanded="false" />
+            <element signature="n#!!block;n#channelInactive#0;n#!!block;n#HttpServerHandler#0;n#!!block;n#NettyConnector#0" expanded="false" />
+            <element signature="n#!!block;n#messageReceived#0;n#!!block;n#HttpServerHandler#0;n#!!block;n#NettyConnector#0" expanded="false" />
+            <element signature="e#5642#5658#1" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/Utilities.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="115" column="86" selection-start-line="115" selection-start-column="86" selection-end-line="115" selection-end-column="86" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#647#699#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/HttpSessionImpl.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#652#770#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/ServletImpls.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="406" column="60" selection-start-line="406" selection-start-column="60" selection-end-line="406" selection-end-column="60" />
+        <state relative-caret-position="308">
+          <caret line="405" column="0" selection-start-line="405" selection-start-column="0" selection-end-line="405" selection-end-column="0" />
           <folding>
             <element signature="n#!!block;n#BaseImpl#0" expanded="false" />
             <element signature="n#!!block;n#setAttribute#0;n#!!block;n#BaseImpl#0" expanded="false" />
             <element signature="n#!!block;n#removeAttribute#0;n#!!block;n#BaseImpl#0" expanded="false" />
             <element signature="n#!!block;n#setLocale#0;n#!!block;n#BaseImpl#0" expanded="false" />
+            <element signature="n#!!block;n#ServletContextImpl#0" expanded="false" />
             <element signature="n#!!block;n#Companion#0;n#!!block;n#ServletContextImpl#0" expanded="false" />
+            <element signature="e#1958#2316#2" expanded="false" />
             <element signature="n#!!block;n#getEffectiveMinorVersion#0;n#!!block;n#ServletContextImpl#0" expanded="false" />
             <element signature="n#!!block;n#addListener#0;n#!!block;n#ServletContextImpl#0" expanded="false" />
             <element signature="n#!!block;n#addListener#1;n#!!block;n#ServletContextImpl#0" expanded="false" />
@@ -1667,417 +1856,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/ServletRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="527" column="33" selection-start-line="527" selection-start-column="30" selection-end-line="527" selection-end-column="33" />
-          <folding>
-            <element signature="docComment;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getAttributeNames#0;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getCharacterEncoding#0;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#setCharacterEncoding#0;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getContentLength#0;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getContentLengthLong#0;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getContentType#0;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getInputStream#0;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getParameter#0;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getParameterNames#0;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getParameterValues#0;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getParameterMap#0;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getProtocol#0;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getScheme#0;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getServerName#0;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getServerPort#0;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getReader#0;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getRemoteAddr#0;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getRemoteHost#0;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#removeAttribute#0;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getLocales#0;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#isSecure#0;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getRequestDispatcher#0;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getRealPath#0;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getRemotePort#0;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getLocalName#0;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getLocalAddr#0;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getLocalPort#0;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getServletContext#0;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#startAsync#1;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#isAsyncStarted#0;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#isAsyncSupported#0;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getAsyncContext#0;class#ServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getDispatcherType#0;class#ServletRequest#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/http/HttpServletRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="78" column="54" selection-start-line="78" selection-start-column="54" selection-end-line="78" selection-end-column="54" />
-          <folding>
-            <element signature="docComment;class#HttpServletRequest#0" expanded="false" />
-            <element signature="docComment;field#BASIC_AUTH#0;class#HttpServletRequest#0" expanded="false" />
-            <element signature="docComment;field#FORM_AUTH#0;class#HttpServletRequest#0" expanded="false" />
-            <element signature="docComment;field#CLIENT_CERT_AUTH#0;class#HttpServletRequest#0" expanded="false" />
-            <element signature="docComment;field#DIGEST_AUTH#0;class#HttpServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getAuthType#0;class#HttpServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getCookies#0;class#HttpServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getDateHeader#0;class#HttpServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getHeader#0;class#HttpServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getHeaders#0;class#HttpServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getHeaderNames#0;class#HttpServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getIntHeader#0;class#HttpServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getMethod#0;class#HttpServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getPathInfo#0;class#HttpServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getPathTranslated#0;class#HttpServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getContextPath#0;class#HttpServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getQueryString#0;class#HttpServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getRemoteUser#0;class#HttpServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getUserPrincipal#0;class#HttpServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getRequestedSessionId#0;class#HttpServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getServletPath#0;class#HttpServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getSession#0;class#HttpServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getSession#1;class#HttpServletRequest#0" expanded="false" />
-            <element signature="docComment;method#changeSessionId#0;class#HttpServletRequest#0" expanded="false" />
-            <element signature="docComment;method#isRequestedSessionIdValid#0;class#HttpServletRequest#0" expanded="false" />
-            <element signature="docComment;method#isRequestedSessionIdFromCookie#0;class#HttpServletRequest#0" expanded="false" />
-            <element signature="docComment;method#isRequestedSessionIdFromURL#0;class#HttpServletRequest#0" expanded="false" />
-            <element signature="docComment;method#isRequestedSessionIdFromUrl#0;class#HttpServletRequest#0" expanded="false" />
-            <element signature="docComment;method#authenticate#0;class#HttpServletRequest#0" expanded="false" />
-            <element signature="docComment;method#login#0;class#HttpServletRequest#0" expanded="false" />
-            <element signature="docComment;method#logout#0;class#HttpServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getParts#0;class#HttpServletRequest#0" expanded="false" />
-            <element signature="docComment;method#getPart#0;class#HttpServletRequest#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/Servlet.java">
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/AttributeProvider.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
-          <caret line="100" column="17" selection-start-line="100" selection-start-column="17" selection-end-line="100" selection-end-column="17" />
-          <folding>
-            <element signature="docComment;class#Servlet#0" expanded="false" />
-            <element signature="docComment;method#init#0;class#Servlet#0" expanded="false" />
-            <element signature="docComment;method#getServletConfig#0;class#Servlet#0" expanded="false" />
-            <element signature="docComment;method#service#0;class#Servlet#0" expanded="false" />
-            <element signature="docComment;method#getServletInfo#0;class#Servlet#0" expanded="false" />
-            <element signature="docComment;method#destroy#0;class#Servlet#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/ServletConfigImpl.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+          <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#652#780#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/apps/java/jdk1.8.0_91/src.zip!/java/lang/ref/Reference.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="305" column="4" selection-start-line="305" selection-start-column="4" selection-end-line="305" selection-end-column="4" />
-          <folding>
-            <element signature="e#10903#10904#0" expanded="true" />
-            <element signature="e#10939#10940#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/apps/java/jdk1.8.0_91/src.zip!/java/lang/ref/WeakReference.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="56" column="10" selection-start-line="56" selection-start-column="10" selection-end-line="56" selection-end-column="10" />
-          <folding>
-            <element signature="e#1456#1457#0" expanded="true" />
-            <element signature="e#1487#1488#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/Registration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="160" column="14" selection-start-line="160" selection-start-column="14" selection-end-line="160" selection-end-column="14" />
-          <folding>
-            <element signature="docComment;class#Registration#0" expanded="false" />
-            <element signature="docComment;method#getName#0;class#Registration#0" expanded="false" />
-            <element signature="docComment;method#getClassName#0;class#Registration#0" expanded="false" />
-            <element signature="docComment;method#setInitParameter#0;class#Registration#0" expanded="false" />
-            <element signature="docComment;method#getInitParameter#0;class#Registration#0" expanded="false" />
-            <element signature="docComment;method#setInitParameters#0;class#Registration#0" expanded="false" />
-            <element signature="docComment;method#getInitParameters#0;class#Registration#0" expanded="false" />
-            <element signature="docComment;class#Dynamic#0;class#Registration#0" expanded="false" />
-            <element signature="docComment;method#setAsyncSupported#0;class#Dynamic#0;class#Registration#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/AbstractRegistration.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="51" column="30" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#652#720#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/apps/java/jdk1.8.0_91/src.zip!/java/util/EnumSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="79" column="22" selection-start-line="79" selection-start-column="22" selection-end-line="79" selection-end-column="22" />
-          <folding>
-            <element signature="docComment;class#EnumSet#0" expanded="false" />
-            <element signature="docComment;field#elementType#0;class#EnumSet#0" expanded="false" />
-            <element signature="docComment;field#universe#0;class#EnumSet#0" expanded="false" />
-            <element signature="method#EnumSet#0;class#EnumSet#0" expanded="false" />
-            <element signature="docComment;method#noneOf#0;class#EnumSet#0" expanded="false" />
-            <element signature="method#noneOf#0;class#EnumSet#0" expanded="false" />
-            <element signature="docComment;method#allOf#0;class#EnumSet#0" expanded="false" />
-            <element signature="method#allOf#0;class#EnumSet#0" expanded="false" />
-            <element signature="docComment;method#addAll#0;class#EnumSet#0" expanded="false" />
-            <element signature="docComment;method#copyOf#0;class#EnumSet#0" expanded="false" />
-            <element signature="docComment;method#copyOf#1;class#EnumSet#0" expanded="false" />
-            <element signature="method#copyOf#1;class#EnumSet#0" expanded="false" />
-            <element signature="docComment;method#complementOf#0;class#EnumSet#0" expanded="false" />
-            <element signature="method#complementOf#0;class#EnumSet#0" expanded="false" />
-            <element signature="docComment;method#of#0;class#EnumSet#0" expanded="false" />
-            <element signature="method#of#0;class#EnumSet#0" expanded="false" />
-            <element signature="docComment;method#of#1;class#EnumSet#0" expanded="false" />
-            <element signature="method#of#1;class#EnumSet#0" expanded="false" />
-            <element signature="docComment;method#of#2;class#EnumSet#0" expanded="false" />
-            <element signature="method#of#2;class#EnumSet#0" expanded="false" />
-            <element signature="docComment;method#of#3;class#EnumSet#0" expanded="false" />
-            <element signature="method#of#3;class#EnumSet#0" expanded="false" />
-            <element signature="docComment;method#of#4;class#EnumSet#0" expanded="false" />
-            <element signature="method#of#4;class#EnumSet#0" expanded="false" />
-            <element signature="docComment;method#of#5;class#EnumSet#0" expanded="false" />
-            <element signature="method#of#5;class#EnumSet#0" expanded="false" />
-            <element signature="docComment;method#range#0;class#EnumSet#0" expanded="false" />
-            <element signature="method#range#0;class#EnumSet#0" expanded="false" />
-            <element signature="docComment;method#addRange#0;class#EnumSet#0" expanded="false" />
-            <element signature="docComment;method#clone#0;class#EnumSet#0" expanded="false" />
-            <element signature="method#clone#0;class#EnumSet#0" expanded="false" />
-            <element signature="docComment;method#complement#0;class#EnumSet#0" expanded="false" />
-            <element signature="docComment;method#typeCheck#0;class#EnumSet#0" expanded="false" />
-            <element signature="method#typeCheck#0;class#EnumSet#0" expanded="false" />
-            <element signature="docComment;method#getUniverse#0;class#EnumSet#0" expanded="false" />
-            <element signature="method#getUniverse#0;class#EnumSet#0" expanded="false" />
-            <element signature="docComment;class#SerializationProxy#0;class#EnumSet#0" expanded="false" />
-            <element signature="class#SerializationProxy#0;class#EnumSet#0" expanded="false" />
-            <element signature="docComment;field#elementType#0;class#SerializationProxy#0;class#EnumSet#0" expanded="false" />
-            <element signature="docComment;field#elements#0;class#SerializationProxy#0;class#EnumSet#0" expanded="false" />
-            <element signature="method#SerializationProxy#0;class#SerializationProxy#0;class#EnumSet#0" expanded="false" />
-            <element signature="method#readResolve#0;class#SerializationProxy#0;class#EnumSet#0" expanded="false" />
-            <element signature="method#readObject#0;class#EnumSet#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/ServletRegistration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="84" column="36" selection-start-line="84" selection-start-column="36" selection-end-line="84" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/FilterRegistration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="146" column="71" selection-start-line="146" selection-start-column="71" selection-end-line="146" selection-end-column="71" />
-          <folding>
-            <element signature="docComment;class#FilterRegistration#0" expanded="false" />
-            <element signature="docComment;method#addMappingForServletNames#0;class#FilterRegistration#0" expanded="false" />
-            <element signature="docComment;method#getServletNameMappings#0;class#FilterRegistration#0" expanded="false" />
-            <element signature="docComment;method#addMappingForUrlPatterns#0;class#FilterRegistration#0" expanded="false" />
-            <element signature="docComment;method#getUrlPatternMappings#0;class#FilterRegistration#0" expanded="false" />
-            <element signature="docComment;class#Dynamic#0;class#FilterRegistration#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/ServletRegistrationImpl.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="59" column="56" selection-start-line="59" selection-start-column="56" selection-end-line="59" selection-end-column="56" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#652#780#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/FilterRegistrationImpl.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#652#780#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/SessionCookieConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-748">
-          <caret line="51" column="27" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="27" />
-          <folding>
-            <element signature="docComment;class#SessionCookieConfig#0" expanded="false" />
-            <element signature="docComment;method#setName#0;class#SessionCookieConfig#0" expanded="false" />
-            <element signature="docComment;method#getName#0;class#SessionCookieConfig#0" expanded="false" />
-            <element signature="docComment;method#setDomain#0;class#SessionCookieConfig#0" expanded="false" />
-            <element signature="docComment;method#getDomain#0;class#SessionCookieConfig#0" expanded="false" />
-            <element signature="docComment;method#setPath#0;class#SessionCookieConfig#0" expanded="false" />
-            <element signature="docComment;method#getPath#0;class#SessionCookieConfig#0" expanded="false" />
-            <element signature="docComment;method#setComment#0;class#SessionCookieConfig#0" expanded="false" />
-            <element signature="docComment;method#getComment#0;class#SessionCookieConfig#0" expanded="false" />
-            <element signature="docComment;method#setHttpOnly#0;class#SessionCookieConfig#0" expanded="false" />
-            <element signature="docComment;method#isHttpOnly#0;class#SessionCookieConfig#0" expanded="false" />
-            <element signature="docComment;method#setSecure#0;class#SessionCookieConfig#0" expanded="false" />
-            <element signature="docComment;method#isSecure#0;class#SessionCookieConfig#0" expanded="false" />
-            <element signature="docComment;method#setMaxAge#0;class#SessionCookieConfig#0" expanded="false" />
-            <element signature="docComment;method#getMaxAge#0;class#SessionCookieConfig#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/ServletContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="709" column="28" selection-start-line="709" selection-start-column="16" selection-end-line="709" selection-end-column="28" />
-          <folding>
-            <element signature="docComment;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;field#TEMPDIR#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;field#ORDERED_LIBS#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#getContextPath#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#getContext#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#getMajorVersion#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#getMinorVersion#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#getEffectiveMajorVersion#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#getEffectiveMinorVersion#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#getMimeType#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#getResourcePaths#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#getResource#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#getResourceAsStream#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#getRequestDispatcher#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#getNamedDispatcher#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#getServlet#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#getServlets#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#getServletNames#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#log#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#log#1;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#log#2;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#getRealPath#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#getServerInfo#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#getInitParameter#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#getInitParameterNames#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#setInitParameter#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#getAttribute#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#getAttributeNames#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#setAttribute#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#removeAttribute#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#getServletContextName#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#addServlet#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#addServlet#1;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#addServlet#2;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#createServlet#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#getServletRegistration#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#getServletRegistrations#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#addFilter#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#addFilter#1;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#addFilter#2;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#createFilter#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#getFilterRegistration#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#getFilterRegistrations#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#getSessionCookieConfig#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#setSessionTrackingModes#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#getDefaultSessionTrackingModes#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#getEffectiveSessionTrackingModes#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#addListener#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#addListener#1;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#addListener#2;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#createListener#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#getJspConfigDescriptor#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#getClassLoader#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#declareRoles#0;class#ServletContext#0" expanded="false" />
-            <element signature="docComment;method#getVirtualServerName#0;class#ServletContext#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/http/HttpSession.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="341" column="0" selection-start-line="341" selection-start-column="0" selection-end-line="341" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#HttpSession#0" expanded="false" />
-            <element signature="docComment;method#getCreationTime#0;class#HttpSession#0" expanded="false" />
-            <element signature="docComment;method#getId#0;class#HttpSession#0" expanded="false" />
-            <element signature="docComment;method#getLastAccessedTime#0;class#HttpSession#0" expanded="false" />
-            <element signature="docComment;method#getServletContext#0;class#HttpSession#0" expanded="false" />
-            <element signature="docComment;method#setMaxInactiveInterval#0;class#HttpSession#0" expanded="false" />
-            <element signature="docComment;method#getMaxInactiveInterval#0;class#HttpSession#0" expanded="false" />
-            <element signature="docComment;method#getSessionContext#0;class#HttpSession#0" expanded="false" />
-            <element signature="docComment;method#getAttribute#0;class#HttpSession#0" expanded="false" />
-            <element signature="docComment;method#getValue#0;class#HttpSession#0" expanded="false" />
-            <element signature="docComment;method#getAttributeNames#0;class#HttpSession#0" expanded="false" />
-            <element signature="docComment;method#getValueNames#0;class#HttpSession#0" expanded="false" />
-            <element signature="docComment;method#setAttribute#0;class#HttpSession#0" expanded="false" />
-            <element signature="docComment;method#putValue#0;class#HttpSession#0" expanded="false" />
-            <element signature="docComment;method#removeAttribute#0;class#HttpSession#0" expanded="false" />
-            <element signature="docComment;method#removeValue#0;class#HttpSession#0" expanded="false" />
-            <element signature="docComment;method#invalidate#0;class#HttpSession#0" expanded="false" />
-            <element signature="docComment;method#isNew#0;class#HttpSession#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/http/HttpSessionBindingEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-116">
-          <caret line="79" column="13" selection-start-line="79" selection-start-column="13" selection-end-line="79" selection-end-column="13" />
-          <folding>
-            <element signature="docComment;class#HttpSessionBindingEvent#0" expanded="false" />
-            <element signature="docComment;method#HttpSessionBindingEvent#0;class#HttpSessionBindingEvent#0" expanded="false" />
-            <element signature="method#HttpSessionBindingEvent#0;class#HttpSessionBindingEvent#0" expanded="false" />
-            <element signature="docComment;method#HttpSessionBindingEvent#1;class#HttpSessionBindingEvent#0" expanded="false" />
-            <element signature="method#HttpSessionBindingEvent#1;class#HttpSessionBindingEvent#0" expanded="false" />
-            <element signature="docComment;method#getSession#0;class#HttpSessionBindingEvent#0" expanded="false" />
-            <element signature="docComment;method#getName#0;class#HttpSessionBindingEvent#0" expanded="false" />
-            <element signature="docComment;method#getValue#0;class#HttpSessionBindingEvent#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/apps/java/jdk1.8.0_91/src.zip!/java/util/HashMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="609" column="13" selection-start-line="609" selection-start-column="13" selection-end-line="609" selection-end-column="13" />
-          <folding>
-            <element signature="e#24298#24299#0" expanded="true" />
-            <element signature="e#24363#24364#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/http/HttpSessionAttributeListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#HttpSessionAttributeListener#0" expanded="false" />
-            <element signature="docComment;method#attributeAdded#0;class#HttpSessionAttributeListener#0" expanded="false" />
-            <element signature="docComment;method#attributeRemoved#0;class#HttpSessionAttributeListener#0" expanded="false" />
-            <element signature="docComment;method#attributeReplaced#0;class#HttpSessionAttributeListener#0" expanded="false" />
+            <element signature="e#652#709#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2093,24 +1878,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/HttpSessionImpl.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/AbstractServletRequest.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        <state relative-caret-position="544">
+          <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#652#770#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/pw/phylame/hongceicei/impl/AttributeProvider.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#652#709#0" expanded="true" />
+            <element signature="e#652#723#0" expanded="true" />
           </folding>
         </state>
       </provider>
