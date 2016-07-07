@@ -17,9 +17,12 @@
 package pw.phylame.hongceicei.impl
 
 import pw.phylame.hongceicei.enumerate
+import java.lang.ref.WeakReference
 import java.util.*
+import javax.servlet.ServletContext
 
 open class AttributeProvider {
+
     protected val attributes = HashMap<String, Any?>()
 
     fun getAttributeNames(): Enumeration<String> = attributes.keys.enumerate()
@@ -51,4 +54,11 @@ open class AttributeProvider {
     protected open fun attributeReplaced(name: String, value: Any) {
 
     }
+}
+
+open class AttributeWithContext(context: ServletContext) : AttributeProvider() {
+
+    private val context = WeakReference(context)
+
+    fun getServletContext(): ServletContext = context.get()
 }

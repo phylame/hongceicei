@@ -21,10 +21,10 @@ import javax.servlet.http.HttpSession
 import javax.servlet.http.HttpSessionContext
 
 class HttpSessionImpl(
-        val context: ServletContext,
+        context: ServletContext,
         val _id: String,
         var _maxInactiveInterval: Int
-) : AttributeProvider(), HttpSession {
+) : AttributeWithContext(context), HttpSession {
 
     private val creationTime = System.currentTimeMillis()
 
@@ -37,8 +37,6 @@ class HttpSessionImpl(
     override fun isNew(): Boolean {
         throw UnsupportedOperationException("not implemented")
     }
-
-    override fun getServletContext(): ServletContext = context
 
     override fun invalidate() {
         throw UnsupportedOperationException("not implemented")

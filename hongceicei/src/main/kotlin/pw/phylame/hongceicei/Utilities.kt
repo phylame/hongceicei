@@ -66,6 +66,10 @@ fun <E> Iterable<E>.enumerate(): Enumeration<E> = this.iterator().enumerate()
 
 fun <E> Array<E>.enumerate(): Enumeration<E> = this.iterator().enumerate()
 
+inline fun <E> Enumeration<E>.forEach(operation: (E) -> Unit) {
+    this.iterator().forEach(operation)
+}
+
 fun <T> T.iif(condition: Boolean, ok: (T) -> T): T = if (condition) ok(this) else this
 
 fun CharSequence.toPair(sep: Char, ignoreCase: Boolean = false, doTrim: Boolean = false): Pair<String, String> {
@@ -114,3 +118,4 @@ inline fun <T : CharSequence> requireNotEmpty(value: T, lazyMessage: () -> Any):
 }
 
 inline fun <reified E> emptyEnumeration(): Enumeration<E> = emptyList<E>().enumerate()
+
